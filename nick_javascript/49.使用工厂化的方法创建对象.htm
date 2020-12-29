@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            使用工厂方法创建对象
+            通过该方法可以大批量的创建对象
+
+
+            使用工厂方法创建的对象，使用的构造函数都是object;
+            所以创建的对象都是object这个类型
+            导致我们无法区分出多种不同类型的对象
+        
+        */ 
+
+        function creatPerson(name,gender,age){
+            var obj = new Object();
+            obj.name = name;
+            obj.age = age;
+            obj.gender = gender;
+            return obj
+        };
+
+        var obj = creatPerson("孙悟空","man",18);
+        console.log(obj)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

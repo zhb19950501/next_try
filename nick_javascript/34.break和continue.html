@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            break关键字可以用来退出switch或循环语句
+                不能在if语句中使用break和continue
+                break关键字，会立即终止离他最近的那个循环
+
+            可以为循环语句创建一个lable，来标识当前循环
+            - 语法
+                lable：循环语句
+               
+            使用break语句时，可以在break后跟着一个lable，
+                这样break会结束指定的循环，而不是最近的。
+            
+            continue关键字可以用来跳过当此循环
+                默认也是对离他最近的循环起作用
+
+
+        */
+       hello:
+        for(var i=1;i<10;i++){
+            for(var j=1;j<=i;j++){
+                document.write("*");
+            }
+            document.write("<br />");
+            break hello;
+        }      
+    </script>
+</head>
+<body>
+
+</body>
+</html>

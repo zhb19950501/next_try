@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        prompt 
+
+        练习1：
+            从键盘输入小明的成绩：
+            当成绩为100时，奖励一辆BMW
+            当成绩为80-99时，奖励手机
+            当成绩为60-80时，奖励参考书
+            其余成绩不奖励
+
+        练习2：
+            编写程序，由键盘输入三个整数分别存入变量num1,num2,num3
+            对他们进行排序，并从小到大输出
+        */
+
+        // var score = prompt("请输入小明的成绩：")
+        var num1 = +prompt("请输入第一个数字：")
+        var num2 = +prompt("请输入第二个数字：")
+        var num3 = +prompt("请输入第三个数字：")
+        var max, mid, min
+        if (typeof (num1) == Number && typeof (num2) == Number && typeof (num3) == Number) {
+            AAmax = num1 >= num2 ? num1 : num2;
+            max = max >= num3 ? max : num3
+            min = num1 <= num2 ? num1 : num2
+            min = min <= num3 ? min : num3
+            mid = num1 + num2 + num3 - max - min
+            alert("最大值" + max + "中间值" + mid + "最小值" + min)
+        }
+        else {
+            alert("别瞎输入不是数字的东西")
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

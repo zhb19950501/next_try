@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{color: brown;}
+        .red{color: chartreuse;}
+        *{color: chocolate;}
+        
+
+        /* 
+        样式优先级顺序
+        内联样式 1，0，0，0
+        id选择器 0，1，0，0
+        类/伪类选择器 0，0，1，0
+        元素选择器 0，0，0，1
+        通配选择器 0，0，0，0
+        继承    没有优先级
+
+        比较优先级时，需要将所有选择器的优先级进行相加计算，最后优先级越高，则越优先显示
+        优先级计算结果相同，优先使用靠下的
+        
+        
+         */
+    </style>
+</head>
+<body>
+    <div id="box1" class="red" style="color: blueviolet;">我是一个div</div>
+</body>
+</html>

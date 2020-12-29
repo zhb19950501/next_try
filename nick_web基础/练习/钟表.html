@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+
+
+        }
+
+        .sec-wrapper{
+
+            height: 400px;
+            width: 400px;
+            border-radius: 50%;
+            margin: 0 auto;
+            margin-top: 100px;
+            background-color: #bbffaa;
+            animation: run 60s steps(60);
+        }
+
+        .sec{
+            height: 200px;
+            width: 4px;
+            background-color: tomato;
+            margin: 0 auto;
+
+        }   
+
+        @keyframes run{
+            from{
+                transform: rotateZ(0deg);
+            }
+
+            to{
+                transform: rotateZ(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sec-wrapper">
+        <div class="sec"></div>
+    </div>
+    
+</body>
+</html>

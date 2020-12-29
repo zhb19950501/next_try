@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            
+        }
+        /* 
+        相邻的父子元素之间会存在上部外边距重叠的问题
+        子元素设置的外边距会传递给父元素display
+        所以只要让他俩不相邻就好了~
+        before这个伪类是一个行内元素，改成table既不占位置，又可以起到占位置的效果
+        如果不写display，那么不起效果
+        如果写成block,也没有效果
+        如果写成inline-block，那么相当于是个字，和在content里写内容的样子一样。
+         */
+        /* .box1::before{
+            content: "";
+            display: table;
+        } */
+
+        .box2{
+            width: 100px;
+            height: 100px;
+            margin-top: 100px;
+            background-color: yellowgreen;
+        }
+
+        /*
+             最终解决方案~
+            解决外边距问题~
+            解决浮动高度塌陷问题~
+        
+         */
+        .clearfix::after,
+        .clearfix::before{
+            content: "";
+            display: flow-root;
+            clear: both;
+            
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="box1 clearfix">
+        <div class="box2"></div>
+    </div>
+
+</body>
+</html>

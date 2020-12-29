@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            background-color: #bfa;
+            width: 100px;
+            height: 100px;
+            animation: scale 2s linear infinite alternate;
+        }
+
+        /* 
+            transform scale函数，对元素进行缩放
+                scaleX()水平方向缩放
+                scaleY()垂直方向缩放
+                scale() 水平和垂直方向双方向缩放
+
+            transform-origin 设置变形的原点
+                默认值 center 中间
+                可以传入坐标 0 0 左上点
+        
+        
+         */
+
+        @keyframes scale{
+            from{
+                transform: scale(1);
+            }
+
+            to{
+                transform: scale(2);
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

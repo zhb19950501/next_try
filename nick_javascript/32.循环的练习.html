@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 打印100以内奇数的和
+        var sum = 0;
+        for(var i =0;i<100;i++){
+            if(i%2==1){
+                sum+=i;
+            }
+        }
+        alert(sum)
+    </script>
+    <script>
+        // 打印1-100之间7的倍数的个数及和
+        for(var i=1,sum=0,n=0;i<=100;i++){
+            if(i%7==0){
+                sum+=i
+                n++
+            }
+        }
+        alert("和为"+sum+"个数为"+n)
+    </script>
+    <script>
+        // 打印水仙花数（三位数，每一位的三次幂相加与该数相等）
+        for(var i=100;i<1000;i++){
+            var bw = parseInt(i/100);
+            var sw = parseInt((i-bw*100)/10);
+            var gw = i-bw*100-sw*10;
+            if(i == bw*bw*bw+sw*sw*sw+gw*gw*gw){
+                alert(i);
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

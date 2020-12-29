@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1,
+        #box2 {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+        }
+
+        #box1 {
+            background-color: #bbffaa;
+        }
+
+        #box2 {
+            top: 200px;
+            background-color: red;
+        }
+
+        #des {
+            width: 0;
+            height: 1000px;
+            border-left: 1px solid black;
+            position: absolute;
+            left: 800px;
+            top: 0;
+        }
+    </style>
+    <script src="./JS/script.js"></script>
+    <script>
+        /*
+        实现：
+            1、点击按钮1，实现box1向右移动至800处停止，速度11px，30ms移动一次
+            2、点击按钮2，实现box1向左移动至0处停止，速度11px，30ms移动一次
+            3、点击按钮3，实现box2向右移动至800处停止，速度22px，30ms移动一次
+            4、二者不能相互干扰，独立运行
+            5、将移动动画提取为函数
+
+        
+            
+            
+
+        */
+        window.onload = function () {
+
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var btn03 = document.getElementById("btn03");
+
+
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+
+            btn01.onclick = function () {
+
+                move(box1, "left", 800, 11, 30)
+
+
+                // clearInterval(box1.timer);
+
+                // box1.timer = setInterval(function () {
+                //     var speed = 10;
+                //     var s_attr = parseInt(getStyle(box1, "attr"));
+                //     var e_attr = s_attr + speed;
+
+                //     if (e_attr > 800) {
+                //         e_attr = 800
+                //     }
+                //     box1.style.attr = e_attr + "px";
+                // }, 30)
+
+            }
+
+            btn02.onclick = function () {
+                move(box1,"left",0,11,30)
+                // clearInterval(box1.timer);
+
+                // box1.timer = setInterval(function () {
+                //     var speed = 10;
+                //     var s_attr = parseInt(getStyle(box1, "attr"));
+                //     var e_attr = s_attr - speed;
+
+                //     if (e_attr < 0) {
+                //         e_attr = 0
+                //     }
+                //     box1.style.attr = e_attr + "px";
+                // }, 30)
+
+            }
+
+            btn03.onclick = function () {
+                clearInterval(box2.timer);
+                move(box2,"left",800,22,30)
+
+                // box2.timer = setInterval(function () {
+                //     var speed = 22;
+                //     var s_attr = parseInt(getStyle(box2, "attr"));
+                //     var e_attr = s_attr + speed;
+
+                //     if (e_attr > 800) {
+                //         e_attr = 800
+                //     }
+                //     box2.style.attr = e_attr + "px";
+                // }, 30)
+            }
+
+            function move(obj, attr, destination, speed, frequency, callback) {
+                clearInterval(obj.timer);
+
+                var s_attr = parseInt(getStyle(obj, attr));
+
+                if (s_attr > destination) { speed = -speed };
+
+                obj.timer = setInterval(function () {
+                    s_attr = parseInt(getStyle(obj, attr));
+                    var e_attr = s_attr + speed;
+                    
+                    
+                    if ((speed < 0 && e_attr < destination) || (speed > 0 && e_attr > destination)) {
+                        e_attr = destination;
+                    }
+                    obj.style[attr] = e_attr + "px";
+
+                    if (e_attr == destination) {
+                        
+                        clearInterval(obj.timer);
+                        callback && callback();
+                        
+                    };
+
+                }, frequency)
+            }
+
+        }
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <button id="btn01">box1向右移动</button>
+    <button id="btn02">box1向左移动</button>
+    <button id="btn03">box2向右移动</button>
+    <br><br>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="des"></div>
+</body>
+
+</html>

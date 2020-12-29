@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 375px;
+            height: 100px;
+            background-color: #bbffaa;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        不同设备完美视口的大小是不一样的
+            iphone6 --375
+            iphone6plus --414
+
+            
+        由于不同设备视口和像素比不同，所以同样的375个像素在不同的设备下意义是不一样的
+            比如在iphone6中375就是全屏，而到了plus中375就会缺一块
+
+        所以在移动端开发中，就不能使用px来进行布局
+
+        vw是一个新单位，表示的是视口的宽度（viewport width）
+            - 100vw = 一个视口的宽度
+            - 1vw = 1%视口的宽度
+
+            vw这个单位永远相当于视口宽度进行计算
+
+            设计图的宽度
+                750px  1125px
+            
+            设计图
+                750px
+
+            使用VW作为单位
+                
+     -->
+
+     <div class="box1"></div>
+</body>
+</html>

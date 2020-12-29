@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            交集选择器
+                作用：选中同时符合条件的元素
+                语法：选择器1选择器2选择器n{}
+                注意：交集选择器中如果有元素选择器，必须以元素选择器开头
+
+             并集选择器
+                作用：同时选中符合条件的元素
+                语法：选择器1，选择器2，选择器n{}
+                注意：交集选择器中如果由元素选择器，必须以元素选择器开头           
+
+         */
+        p.blue{color: green;}
+        p,div{color: grey;}
+    </style>
+
+
+
+</head>
+<body>
+    <div>今天天气真不错</div>
+    <p id="red">今天天气真不错</p>    
+    <p id="box">今天天气真不错</p>    
+    <p>今天天气真不错</p>    
+    <p class="blue">今天天气真不错</p>    
+    <p class="blue">今天天气真不错</p>    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            对象的属性可以是任意的数据类型，也可以是个函数
+
+            如果一个函数作为一个对象的属性保存，调用时称为调用该对象的方法
+
+            枚举对象中的属性，使用for in 语句
+
+                语法：
+                    for(var 变量 in 对象){
+
+                    }
+            
+        */
+        var obj = new Object();
+        obj.name="huihui";
+        obj.eat=function(){
+            console.log("回回在吃东西")
+        };
+        obj.weight=120;
+
+        for(var i in obj){
+            console.log(""+i)
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

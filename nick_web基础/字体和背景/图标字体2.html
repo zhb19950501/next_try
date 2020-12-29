@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 
+        通过伪元素来设置图标字体
+        
+        
+        
+         */
+         li::before{
+             content: '\f1b0';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        color: blue;
+
+         }
+    </style>
+</head>
+<body>
+    <!-- <i class="fas fa-cat"></i> -->
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <!-- 通过实体来使用图标字体：
+        &#x图标的编码； -->
+    <span class="fas">&#xfof3;</span>
+</body>
+</html>

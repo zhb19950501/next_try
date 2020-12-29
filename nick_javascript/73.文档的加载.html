@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 浏览器加载页面的顺序
+            自上而下的顺序加载，读取到一行就运行一行
+            如果将JS代码写在页面的上面，在代码执行时，页面还没有加载
+            将JS代码编写到页面下部，就是为了确保页面加载完了以后再执行JS代码
+
+        如果想把代码写在上面
+        可以使用事件 window.onload 
+        onload 事件会在整个页面加载完成之后才触发
+        这样可以确保我们的代码执行时，所有的DOM对象已经加载完毕
+
+    -->
+
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById("btn");
+            btn.onclick = function () {
+                alert("hello")
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <button id="btn">点我一下</button>
+
+</body>
+
+</html>

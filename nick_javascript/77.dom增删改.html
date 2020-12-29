@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            1.创建元素节点对象
+                document.creatElement(标签名)
+                方法需要将标签名称以字符串形式传入
+                返回创建好的对象
+
+            2.创建文本节点对象
+                document.creatTextNode(文本内容)
+                方法需要一个文本内容作为参数，将会根据改内容创建文本对象
+                返回创建好的文本对象
+
+            3.向父节点中添加子节点
+                父节点.appendChild(子节点)
+
+            4.在指定的子节点前插入新的子节点
+                父节点.insertBefore(新的子节点，指定的子节点)
+
+            5.新的子节点替换指定子节点
+                父节点.replaceChild(新的子节点，指定的子节点)
+
+            6.删除子节点
+                父节点.removeChild(子节点)
+                子节点.parentNode.removeChild(子节点)
+
+            7.使用innerHTML实现dom增删改
+                li.innerHTML += "广州"
+        
+        
+        
+        
+        */
+        window.onload = function () {
+            var li = document.createElement("li");
+            var gzText = document.createTextNode("广州");
+            li.appendChild(gzText);
+            li.innerHTML = "广州"
+            document.body.appendChild(li);
+        }
+
+    </script>
+</head>
+
+<body>
+    <li>aaa</li>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bbffaa;
+            position: absolute;
+        }
+
+        #box2{
+            width: 500px;
+            height: 500px;
+            background-color: orange;
+        }
+    </style>
+    <script>
+        /*
+        事件的冒泡（Bubble）
+            - 事件的向上传导，当后代元素上的事件被触发时，其祖先元素的相同事件也会被触发
+            - 在开发中，冒泡都是有用的，如果不希望发生事件冒泡，可以通过事件对象来取消冒泡
+                event.cancelBubble = true 取消冒泡
+        
+        
+        
+        */
+
+
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            document.onmousemove = function (e) {
+                e = e || window.e;
+
+                var x = e.clientX;
+                var y = e.clientY;
+
+                // var x = e.pageX;
+                // var y = e.pageY;
+                var sc = document.documentElement.scrollTop
+
+                box1.style.left = x + "px";
+                box1.style.top = y + sc + "px";
+            }
+            var box2 = document.getElementById("box2")
+            box2.onmousemove = function(e){
+                e = e||window.e
+                e.cancelBubble = true;
+            }
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+
+</html>

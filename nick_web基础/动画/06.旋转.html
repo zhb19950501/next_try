@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            perspective: 800px;
+            border: tomato 1px solid;
+        }
+
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            margin: 200px auto;
+            transition: 1s;
+            /* 
+                z轴平移，调整元素在z轴的位置，正常情况就是调整元素和人眼之间的距离，
+                距离越大，元素离人越近。
+
+                z轴平移属于立体效果（近大远小），默认情况下网页是不支持透视的，如果需要看见效果，必须要设置网页的视距
+            
+            */
+            }
+        
+        body:hover .box1{
+            /* transform: translateZ(200px); */
+            /* 通过旋转 可以使元素沿着x y 或者 z轴旋转指定的角度
+                rotateX()
+                rotateY()
+                rotateZ()
+
+                传入 度数 365deg
+                     圈数 0.25turn
+            */
+            /* transform: rotateZ(360deg); */
+
+            /* 先写的先执行，旋转了之后，坐标轴的位置会发生变化  第一个变小，第二个变大*/
+            /* transform: rotateY(180deg) translateZ(400px); */
+            /* transform:  translateZ(400px) rotateY(180deg); */
+
+            /* 是否显示元素的背面 */
+            backface-visibility: hidden;
+
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

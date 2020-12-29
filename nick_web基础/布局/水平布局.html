@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer{
+            border: red 10px solid;
+            width: 800px;
+            height: 200px;
+
+        }
+
+        .inner{
+            width：auto;
+            /* width默认值是auto */
+            /* width: 200px; */
+            height: 200px;
+            background-color: #bbffaa;
+            margin-left: 200px;
+            margin-right: 400px;
+        }
+        /* 
+        元素的水平方向的布局：
+            元素在其父元素中水平方向的位置由以下几个属性共同决定
+                margin-left
+                border-left
+                padding-left
+                width
+                padding-right
+                border-right
+                margin-right
+            以上七个值相加的和，必须为父元素内容区的宽度。
+            如果不成立，则称为过度约束，等式会自动调整
+                -调整的情况：
+                    -如果七个值中没有为auto的情况，则浏览器会自动调整margin-right值以使等式成立
+
+                    -这七个值中有3个值可以设置为auto
+                        width
+                        margin-left
+                        margin-right
+                        如果某一个值为auto，则会自动调整为auto的那个值以使等式成立
+                        如果将一侧的外边距margin和元素的宽度width设置为auto，则width会最大，margin为0
+                        如果两个margin为auto，宽度width指定为固定值，则两侧的margin值设置为相同的值
+                            - 利用该特点实现元素在父元素中水平居中
+                        如果三个都是auto，就和没设置一样，width最大，margin为0 
+
+
+         */
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">
+
+        </div>
+    </div>
+</body>
+</html>

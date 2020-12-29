@@ -1,0 +1,152 @@
+
+.top-bar-wrapper{
+    background-color: black;
+}
+
+//导航条的外部容器
+.top-bar{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 48px;
+    background-color: #000000;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+    &:hover{
+        color: #afafaf;
+    }
+}
+
+// 左侧导航图标
+.left-menu{
+    // 设置菜单
+    .nav{
+        display: none;
+        position: absolute;
+        // 使元素铺满整个屏幕
+        top: 48px;
+        background-color: #000000;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+        padding-top: 60px;
+        
+
+
+        li{
+            width: 80%;
+            line-height: 48px;
+            border-bottom: #585858 1px solid;
+            margin: 0 auto;
+            
+
+            a,a .iconfont{
+                font-size: 14px;
+                vertical-align: top;
+                
+            }
+            span{
+                color: #ffffff;
+                font-size: 14px;
+                margin-left: 6px;
+            }
+        }
+    }
+    // 显示隐藏菜单
+    &:hover .nav{
+        display: block;
+    }
+
+    // 设置左侧三个横线
+    .menu-icon{
+        // background-color:#bfa; 
+        width: 18px;
+        height: 48px;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-around;
+        padding: 14px 0 ;
+        box-sizing: border-box;
+        li{
+            width: 18px;
+            height: 1px;
+            background-color: #ffffff;
+            transform-origin: left center;
+            transition: 0.5s;
+        }
+        // 鼠标移入以后的效果，正常项目通过JS实现
+        &:hover{
+            li:nth-child(1){
+                transform: rotateZ(48deg);
+            }
+    
+            li:nth-child(2){
+                // 隐藏
+                opacity: 0;
+            }
+            li:nth-child(3){
+                transform: rotateZ(-48deg);
+            }
+        }
+    }
+
+
+}
+
+.logo{
+    line-height: 44px;
+    a{
+        display: block;
+        text-indent: -9999px;
+        width: 160px;
+        height: 44px;
+        background-image: url(./logo-white.@f94af395.png);
+        background-size: 33% ;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+// 设置媒体查询
+@media only screen{
+    // 断点768px
+    @media (min-width:768px){
+
+        .left-menu,.left-menu:hover{
+            flex: auto;
+            order: 2;
+            .nav{
+                display: flex;
+                position: static;
+                padding: 0px;
+                li{
+                    width: auto;
+                    border: none;
+                    
+                    span{
+                        display: none;
+                    }
+                }
+            }
+            // 隐藏三个杠杠
+            .menu-icon{
+                display: none;
+            }
+
+        }
+        .logo{
+            order: 1;
+        }
+        .userinfo{
+            order: 3;
+        }
+        }
+    }

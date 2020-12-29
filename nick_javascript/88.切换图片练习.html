@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #pic{
+            margin: 0 auto;
+            display: block;
+            height: 300px;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+            var pic = document.getElementById("pic");
+            var imgArr = ["./图片/1.jpg.webp","./图片/2.jpg.webp"];
+            var index = 0;
+            setInterval(function(){
+                index++;
+                // 这个写法和下面的注释实现同一个效果
+                index %= imgArr.length;
+                // if(index>imgArr.length){index=1}
+                img.scr = imgArr[index];
+            },1000)
+        }
+    </script>
+</head>
+<body>
+    <img src="./图片/1.jpg.webp" id="pic">
+    <button id="btn1">开始</button>
+    <button id="btn2">结束</button>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        
+        BFC(Block Formatting Context) 块级格式化环境
+            - BFC是一个CSS中的一个隐含的属性，可以为一个元素开启BFC
+                开启BFC该元素会变成一个独立的布局区域
+            
+            - 元素开启BFC后的特点
+                1、开启BFC的元素不会被浮动元素所覆盖
+                2、开启BFC的元素,其子元素的外边距margin值不会传递给它
+                3、开启BFC的元素可以包含浮动的子元素
+
+            - 可以通过一些特殊方式来开启BFC
+                1、设置元素的浮动（不推荐，宽度丢失）
+                2、将元素设置为行内块元素（不推荐，宽度丢失）
+                3、将元素的overflow设置为非visible值
+                    - 常用的方式，为元素设置overflow hidden或者overflow auto 开启其BFC模式，以使其可以包含浮动元素
+
+            目前了解的开启BFC的方式
+            1、根元素（html）
+            2、开启浮动（浮动属性值不为None）
+            3、绝对定位元素
+                -position：absolute
+                -position:fixed
+            4、行内块
+                - display:inline-block
+            5、表格
+                - display:table
+            6、溢出(overflow 属性值不为visible)
+                -overflow：hidden
+                -overflow:auto
+                -overflow:scroll
+
+        
+        
+        
+        
+        
+        
+         */
+        .box1,
+        .box2 {
+            width: 400px;
+            height: 400px;
+        }
+
+        .box1 {
+            background-color: orange;
+            /* float: left; */
+            overflow: hidden;
+        }
+
+        .box2 {
+            background-color: palegreen;
+            overflow: hidden;
+
+        }
+        
+        .box3 {
+                width: 100px;
+                height: 100px;
+                margin-top:100px ;
+                background-color: palegreen;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box3"></div>
+
+    </div>
+    <!-- <div class="box2"></div> -->
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        使用字面量创建正则表达式
+            var 变量 = /正则表达式/匹配模式‘
+
+            字面量创建的方式更简单
+            但使用构造函数创建更灵活，可以传入变量
+
+
+        使用|表示或
+
+        []里的内容也是或的关系
+        [^ ]除了
+
+        [a-z] 任意小写字母
+        [A-Z] 任意大写字母
+        [A-z] 任意字母
+        [0-9] 任意数字
+
+        a[bde]c --> abc|adc|aec
+
+        [^ab] 除了ab以外，有没有其他的元素
+
+        . 表示任意字符
+        \ 转义字符
+        \w 任意字母数字和_  --> [A-z0-9_]
+        \W 除了字母数字和_  --> [^A-z0-9_]
+        \d 数字 
+        \D 除了数字
+        \s 空格
+        \S 除了空格
+        \b 单词边界         
+        \B 除了单词边界
+
+
+
+
+        */
+        var reg = /a/i;
+        console.log(reg.test("abc"))
+
+        reg = /a|b|c/
+
+        reg = /[abc]/
+
+        reg = /\bchild\b/
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

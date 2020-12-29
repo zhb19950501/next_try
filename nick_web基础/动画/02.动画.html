@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 800px;
+            height: 800px;
+            background-color: silver;
+            display: flow-root;
+        }
+        .box1 div{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 100px;
+            margin-left: 0px;
+ 
+        }
+
+
+        .box3{
+            background-color: #bbffaa;
+            /* animation-name: 要对当前元素生效的关键帧的名字  */
+            animation-name: test;
+
+            /* animation-duration: 动画执行的时间 */
+            animation-duration: 3s;
+
+            /* animation-delay: 动画执行的延迟时间 */
+            animation-delay: 2s;
+
+            /* animation-timing-function: 动画执行的时间曲线 */
+            animation-timing-function: ease-in-out;
+
+            /* animation-iteration-count: 动画执行的次数
+                可选值：
+                    次数
+                    infinite 无限次
+            
+             */
+            animation-iteration-count: 2;
+
+            /* animation-direction: 动画执行的方向
+                可选值：
+                    normal 默认值 从from到to每次都是
+                    reverse 从to向from运行，每次都是
+                    alternate 从from到to运行，重复执行动画时反向执行
+                    alternate-reverse从to向from运行，重复执行时反向执行
+            
+             */
+            animation-direction: alternate;
+
+            /* animation-play-state: 设置动画的执行状态
+                可选值：
+                    running 默认值 动画执行
+                    paused 暂停动画(hover别的元素暂停这个动画)
+             */
+            animation-play-state: running;
+            
+            /* animation-fill-mode: 动画的填充模式
+                可选值：
+                    none 默认值 动画执行完毕元素回到原来位置
+                    forwords 动画执行完毕元素会停止在动画结束的位置
+                    backwards 动画延时等待时，元素会处于开始位置
+                    both 结合了forwords 和 backwards
+
+             */
+            animation-fill-mode: both;
+
+
+        }
+
+        .box1:hover .box3{
+            animation-play-state: paused;
+        }
+        /* 
+        动画
+            动画和过度类似，都市可以实现一些动态效果
+                不同的是过渡需要在某个属性发生变化时才会触发
+                动画可以自动触发动态效果
+            
+            设置动画效果，必须先设置一个关键帧，关键帧设置了动画执行的每一个步骤
+
+        
+         */
+
+        @keyframes test{
+            /* to 表示动画结束的位置，也可以使用100% */
+            to{
+                background-color: orange;
+                margin-left: 700px;
+            }
+
+            /* from表示动画开始的位置，也可以用0% */
+            from{
+                background-color: red;
+                margin-left: 0px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <!-- <div class="box2"></div> -->
+        <div class="box3"></div>
+        <!-- <div class="box4"></div> -->
+    </div>
+</body>
+</html>

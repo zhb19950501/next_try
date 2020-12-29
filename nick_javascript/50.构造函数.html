@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            创建一个构造函数，专门创建Person对象
+            构造函数就是一个普通的函数，创建方式和普通函数没有区别
+            不同的是构造函数习惯上首字母大写
+        
+        
+            构造函数和普通函数的区别就是调用方式的不同
+            普通函数就是直接调用，而构造函数需要使用new关键字来调用
+
+            构造函数的执行流程
+                1、立刻创建一个新的对象
+                2、将新建的对象设置为函数中的this，在构造函数中可以使用this来引用新建的对象
+                3、逐行执行函数中的代码
+                4、将新建的对象作为返回值返回
+
+
+            在构造函数中引入方法的问题：
+                如果方法是在构造函数内部创建的，那构造函数每执行一次，都会创建一个sayName方法，
+                执行10000次就会创建10000个方法，而这10000个方法都是一模一样的，这是完全没有必要的，完全可以令所有对象使用同一个方法
+                    1、将方法定义在全局作用域中
+                        但是将函数定义在全局作用域中，污染了全局作用域的命名空间
+                        而且定义在全局作用域中很不安全
+                    2、原型prototype
+
+
+            使用同一个构造函数创建的对象，我们称为一类对象，也将一个构造函数称为一个类
+                我们将通过一个构造函数创建的对象，我们称为该类的实例
+
+
+            使用instanceof 可以检查一个对象是否是一个类的实例
+                语法：
+                    对象 instanceof 构造函数
+                如果是，返回true，否则返回false
+
+            所有对象都是object的后代
+            
+            
+            this的情况：
+            1、当以函数的形式调用时，this是window
+            2、当以方法的形式调用时，谁调用方法，this就是谁
+            3、当以构造函数的形式调用时，this就是新创建的那个对象
+
+
+            
+
+
+        
+        
+        */ 
+
+
+        function Person(){
+            this.name = name;
+            this.age = age;
+
+
+        }
+
+        var per = new Person("Amy",18);
+        console.log(per);
+        console.log(per instanceof Person);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

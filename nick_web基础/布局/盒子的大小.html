@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 2000px;
+            height: 2000px;
+            padding: 100px;
+            margin: 100px;
+            border: royalblue 100px solid;
+
+
+            background-color: skyblue;
+            /* 
+                默认情况下，box-sizing的值是content-box
+                设置的width和height属性的值是内容区域的大小
+             */
+            /* box-sizing: content-box; */
+        }
+
+        .box2{
+            width: 2000px;
+            height: 2000px;
+            padding: 100px;
+            margin: 100px;
+            border: springgreen 100px solid;
+            background-color: red;
+            /* 
+                box-sizing的值为border-box时
+                设置的width和height属性的值是盒子可见区域的大小
+                width = content-width + padding-width +  border-width
+                将自动调整content-width来适应盒子大小
+
+             */
+            box-sizing:border-box;    
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+</body>
+</html>

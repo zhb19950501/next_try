@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        audio 标签用来向页面中引入一个外部的音频文件
+            音频文件引入时，默认情况下不允许用户自己控制播放停止
+        属性
+            controls 是否允许用户控制播放,不用传参数，写了就是允许，默认时没有
+            autoplay 是否自动播放
+                如果设置了autoplay，则音乐在打开页面时会自动播放
+                但是目前大部分浏览器不会自动对音乐自动播放
+            loop 是否循环播放
+            
+            source 除了通过src指定路径，还可以通过soure来指定路径
+
+
+
+
+        video 标签用来引入一个视频文件，操作和audio基本一致
+
+
+     -->
+
+     <audio src="" controls autoplay></audio>
+     <audio >
+         <!-- 对不起，浏览器不支持，请升级呦，写了embed之后基本可以不用这句了-->
+         <source src=".mp3">
+         <source src=".ogg">
+         <embed src=".mp3" type="audio/mp3">
+        </audio>
+
+
+
+        <!-- 
+            embed 比较老的标签，支持音频视频，不太好用，type传入 audio/mp3这样的值
+            width大小要传入，要不是一个小点
+            打开自动播放，没办法控制
+            主要用来兼容一下老版本浏览器
+        
+        
+        
+        -->
+
+    <embed src="" type="">
+</body>
+</html>

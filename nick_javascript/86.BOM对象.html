@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    /*
+    BOM
+        - 浏览器对象模型
+        - BOM可以使我们能通过JS来操作浏览器
+        - 在BOM中为我们提供了一组对象，用来完成对浏览器的操作
+        - BOM对象
+            Window
+                - 代表整个浏览器窗口，同时window也是网页中的全局对象
+            Navigator
+                - 代表当前浏览器的信息，通过该对象可以识别不同的浏览器
+            Location
+                - 代表当前浏览器的地址栏信息，通过location可以获取地址栏信息，或者操作浏览器跳转不同页面
+            History
+                - 代表浏览器的历史记录，可以通过该对象来操作浏览器的历史记录
+                    由于隐私原因，该对象不能获取到具体的历史记录，只能操作浏览器向前或向后翻页
+                    而且该操作只在档次访问时有效
+            Screen
+                - 代表用户的屏幕信息，通过该对象可以获取到用户的显示器的相关信息
+        
+            这些BOM对象在浏览器中都是作为window对象的属性保存的
+            可以通过window对象来使用，也可以直接使用
+
+
+
+        Navigator
+            由于历史原因，Navigator对象中的大部分属性都已经不能帮助我们识别浏览器了
+            一般我们只是用userAgent来判断浏览器的信息
+                - userAgent是一个字符串，这个字符串中包含用来描述浏览器信息的内容
+                  不同的浏览器会有不同的userAgent
+                    可以通过正则表达式判断userAgent字符串里有没有指定的字符，来判断浏览器的类型
+                        例如：/firefox/i.test("navigator.userAgent")
+                  但是在IE11中，已经将微软和IE的相关标识都去除了，所以我们基本已经不能通过userAgent来识别一个浏览器是否是IE了
+
+            如果通过userAgent不能判断，还可以通过一些浏览器中特有的对象，来判断浏览器的信息
+            
+                比如 ActiveXObject
+                
+                但是IE11里把这个属性返回成了false，直接使用window.ActiveXObject会返回false
+
+                所以改成使用"ActiveXObject" in window来判断window里有没有这个属性来判断是不是IE
+
+                if("ActiveXObject" in window){
+                    alert("你是IE")
+                }
+
+        History
+            对象可以用来操作浏览器向前或向后翻页
+
+            .length
+                - 属性，可以获取到当前访问的连接数量
+            
+            .back()
+                - 方法，可以用来回退到上一个页面，作用和浏览器的回退按钮一样
+
+            .forward()
+                - 方法，跳转至下一个页面，和浏览器的前进按钮一样
+
+            .go()
+                - 方法，跳转到指定页面
+                    - 接受一个整数作为参数
+                    1：表示向前跳转一个页面，相当于forward()
+                    2：表示向前跳转两个页面
+                    -1: 表示向后跳转一个页面，相当于back()
+                    
+        
+        Location
+            直接打印location，可以获取到地址栏的信息（当前页面的完整路径）
+
+            如果将location属性修改为一个完整的路径，或相对路径
+            则我们的页面会自动跳转到该路径，并且会生成相应的历史记录
+
+            .assign()
+                - 用来跳转到其他的页面，作用和直接修改location属性一样
+                    方法会生成历史记录
+                
+            .reload()
+                - 重新加载当前页面，作用和刷新按钮一致
+                - 如果在方法中传递一个true作为参数，将会强制清空缓存进行刷新
+
+            .replace()
+                - 可以使用一个新的页面替换当前页面，调用完毕也会跳转页面
+                但是该方法不会生成历史记录，无法退回
+
+
+            
+
+
+            
+
+
+    */
+        console.log(location)
+        location.assign("http://www.baidu.com")
+        
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>

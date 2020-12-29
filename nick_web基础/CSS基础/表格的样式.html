@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{width: 50%;
+            border: 1px solid red;
+            
+            /* border-spacing: 指定边框之间的距离，指定为0px时，两个边框之间没有距离，但是相当于是两个边框; */
+            /* border-spacing: 0px; */
+
+            /* border-collapse: collapse; 设置边框的合并 */
+            border-collapse: collapse;
+        }
+
+        td{
+            border: 1px solid blue;
+            height: 40px;
+            /* 默认情况下，元素在td中是垂直居中的，可以通过vertical-align进行修改 */
+            vertical-align: bottom;
+            text-align: center;
+        }
+        /* 隔行变色 
+            :nth-child(2n)
+            :nth-child(odd)
+            table tr:nth-child(2n)
+            tbody>tr:nth-child(2n)
+                
+                table>tr:nth-child(2n) 这样是选不了的
+                如果表格中没有使用tbody而直接使用tr，那么浏览器会自动的创建一个tbody，并且将tr全部放入tbody中，
+                tr 不是 table的子元素，而是tbody的子元素
+            
+
+        
+        
+        */
+
+
+        tr:nth-child(2n){
+            background-color: #bbffaa;
+        }
+        /* 利用table-cell 的vertical-align:middle
+            实现内部元素的垂直居中
+        
+         */
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .box2{
+            width: 20px;
+            height: 20px;
+            background-color:salmon;
+            margin: 0 auto;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+    <table>
+        <tr>
+            <td>学号</td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>性别</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>tony</td>
+            <td>18</td>
+            <td>男</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>jack</td>
+            <td>20</td>
+            <td>男</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>marry</td>
+            <td>16</td>
+            <td>女</td>
+        </tr>
+    </table>
+</body>
+
+</html>

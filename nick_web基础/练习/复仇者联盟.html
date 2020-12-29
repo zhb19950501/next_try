@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            perspective: 800px;
+        }
+        .cube{
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+            margin: auto;
+            line-height: 200px;
+            vertical-align: top;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            opacity: 0.3;
+        }
+        .font{
+            transform: translateZ(100px);
+        }
+        .back{
+            transform: rotateY(180deg) translateZ(100px);
+        }
+        .left{
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .right{
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .top{
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .bottom{
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        .cube-wrapper{
+            height: 250px;
+            width: 250px;
+            /* background-color: #bbffaa; */
+            margin: 0 auto;
+            margin-top: 100px;
+            position: relative;
+            /* 设置3D变形效果,才能出现3D的透视效果，否则默认是2D平面效果 */
+            transform-style: preserve-3d;
+            /* transform: rotateX(45deg) rotateZ(45deg); */
+            /* transform: rotateZ(45deg) rotateX(45deg); */
+            animation: 10s rotate infinite linear;
+        }
+
+        @keyframes rotate{
+            from{
+                transform: rotateX(0deg) rotateZ(0deg);
+            }
+
+            to{
+                transform: rotateX(360deg) rotateZ(360deg);
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="cube-wrapper">
+        <div class="cube font">前面</div>
+        <div class="cube back">后面</div>
+        <div class="cube left">左面</div>
+        <div class="cube right">右面</div>
+        <div class="cube top">上面</div>
+        <div class="cube bottom">下面</div>
+    </div>
+
+</body>
+</html>

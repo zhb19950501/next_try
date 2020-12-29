@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        1.基本数据类型
+            数字 number
+            字符串 string
+            布尔值 boolean true/false
+            undefined undefined
+            null null
+
+        2.对象/引用数据类型
+            object 任意对象
+            function 一种特殊的对象（可以执行）
+            array  一种特殊的对象 （数值下标，内部数据有序）
+
+
+        判断 
+            typeof 返回数据类型的字符串
+                - 可以判断undefined 数值 字符串 布尔值 function
+                - 不能区分判断 null 和 object    object 和 array 
+            instanceof
+                - 判断对象是否为类的实例，判断对象的具体类型
+            ===
+                - 可以判断undefine和null，只有一个值
+        */ 
+        var a;
+        console.log(a,typeof a,a==="undefined",a===undefined,typeof a === "undefined");//undefined "undefined" false true true
+        a = 3;
+        console.log(typeof a === "number");
+        a = null;
+        console.log(typeof a,a === null); //object true
+
+
+
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>

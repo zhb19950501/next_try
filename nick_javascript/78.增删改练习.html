@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            margin: 40px auto;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid black;
+            min-width: 60px;
+            text-align: center;
+
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var allA = document.getElementsByTagName("a");
+            for(i=0;i<allA.length;i++){
+                allA[i].onclick = function(){
+                    // 这里给allA[i]绑定事件，如果要用到allA[i],应该使用this，而不是使用allA[i]
+                    // 先循环给各个a标签绑定单击响应事件，触发事件时循环已经结束了，i = 3
+                    // 此时如果使用allA[i]会返回undefined，已经超出了索引
+                }
+            }
+        } 
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Salary</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>1</td>
+            <td>1</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Bom</td>
+            <td>1</td>
+            <td>1</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Aom</td>
+            <td>1</td>
+            <td>1</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+    </table>
+</body>
+
+</html>

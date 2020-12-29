@@ -1,0 +1,508 @@
+/* 主页index.html的样式表 */
+
+/* 顶部导航条的容器 */
+
+.topbar-wrapper {
+    /* 设置宽度为全屏 */
+    width: 100%;
+    /* 设置高度和行高
+    行高的目的是为了让元素水平居中
+    在内部元素设置为一行之后,height其实就没有意义啦,line-height就是高度 */
+    height: 40px;
+    line-height: 40px;
+    /* 设置背景颜色 */
+    background-color: #333;
+    font-size: 12px;
+}
+
+/* 设置左侧导航条 */
+
+.service {
+    float: left;
+}
+/* 小三角 */
+.app::before{
+    line-height: 0px;
+    content: "";
+    height: 0px;
+    width: 0px;
+    display: none;
+    border: transparent 8px solid;
+    border-bottom:8px#ffffff solid;
+    position: absolute;
+    left: 15px;
+    bottom: 0px;
+}
+
+.app{
+    position: relative;
+}
+/* 设置下拉框 */
+.app .qrcode{
+    position: absolute ;
+    left: -40px;
+    top: 40px;
+    width: 124px;
+    /* height: 148px; */
+    background-color: #ffffff;
+    line-height: 1;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    /* display: none; */
+    /* 有两种实现隐藏的方式:
+        一种是 display:none
+        一种是将高度设置为0,同时将溢出设置为隐藏
+     */
+     height: 0px;
+     overflow: hidden;
+     /*  transition 用于为样式设置过度效果 */
+     transition: 0.3s height;
+     z-index: 9999;
+}
+/* 设置鼠标悬浮显示 */
+.app:hover .qrcode,
+.app:hover::before{
+    display: block;
+    height: 148px;
+    
+}
+/*设置二维码图片  */
+.app .qrcode img{
+    width: 90px;
+    margin: 17px;
+    margin-bottom: 10px;
+}
+/* 设置二维码下的文字 */
+.app .qrcode span{
+    color: #000000;
+    font-size: 14px;
+}
+
+/* 设置右侧导航条 */
+
+.user-info, .shopcart {
+    float: right;
+    font-size: 12px;
+    
+}
+
+/* 浮动设置各元素为一行 */
+
+.topbar li {
+    float: left;
+    /* 不知道为啥,我的这个设置出来购物车那里高度是41px */
+    /* 父元素的高度由子元素撑开,虽然继承了行高40px,但是高度是由最低到最高,具体原因参见知乎搜索vertical align */
+
+}
+
+/* 设置图标字体大小与文字一致 */
+
+.iconfont {
+    /* 原因好像是没有设置图标字体的大小,它默认的字体大小是内部的16px,好像更大,所以导致了上面那个高度多出来以及不居中 */
+    font-size: 12px;
+    /* 未设置图标字体大小时, 为什么会导致行内其他元素的对齐也出现问题呢?
+        其实不是其他元素出了问题,和旁边的那个li里的元素比起来更低了是因为,
+            1.图标字体更大,a标签里的字体更小,所以整个li的大小会比旁边采用同样的a标签字体大小的li更大.
+            2.两个li是顶端对齐的,而本li的基线相较旁边的更低,所以看起来字体下移了
+
+    */
+}
+
+/* 设置超链接样式 */
+.topbar a {
+    font-size: 12px;
+    color: #b0b0b0;
+    display: block;
+}
+
+/* 设置超链接移入的效果 */
+.topbar a:hover {
+    color: #ffffff;
+}
+
+/* 设置中间的分割线 */
+.topbar .line {
+    color: #424242;
+    font-size: 12px;
+    margin: 0px 8px;
+}
+
+/* 设置购物车的样式 */
+.shopcart a {
+    width: 120px;
+    text-align: center;
+    background-color: #424242;
+    height: 40px;
+}
+/* 设置购物车的图标 */
+.shopcart i{
+    margin-right: 2px;
+}
+
+/* 设置购物车鼠标悬停时的状态 */
+.shopcart:hover a{
+    color: #ff6700;
+    background-color: #ffffff;
+    position: relative;
+    z-index: 100;
+}
+/* 设置购物车与左侧距离 */
+.shopcart{
+    margin-left: 26px;
+    position: relative;
+
+}
+/* 设置购物车的弹出框 */
+.qrshopcart{
+    position: absolute;
+    width: 400px;
+    height: 0px;
+    background-color:#fff;
+    line-height: 100px;
+    color: #333;
+    box-shadow: 0 0px 3px rgba(0, 0, 0, .3);
+    right: 0px;
+    text-align: center;
+    font-size: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+    z-index: 10;
+}
+/* 设置购物车弹出框动态 */
+.shopcart:hover .qrshopcart{
+    height: 100px;
+
+}
+/* 头部容器开启相对定位用于调整其中需要定位的元素 */
+.header-wrapper{
+    position: relative;
+    /* background-color: royalblue; */
+}
+/* 设置中间的header */
+.header{
+    display: flow-root;
+    height: 100px;
+    position: relative;
+    /* background-color: silver; */
+
+}
+/* 设置左侧logo */
+.logo{
+    float: left;
+    position: relative;
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+    margin-top: 22px;
+}
+/* 设置logo */
+.header .logo a{
+    display: block;
+    width: 55px;
+    height: 55px;
+    background-color: #ff6700;
+    background-position: center;
+    position: absolute;
+    transition: 0.3s left;
+}
+/* 设置logo动画 */
+.mi{
+    background-image: url(../download/mi-logo.png);
+    left: 0px;
+}
+/* 设置logo动画 */
+.home{
+    background-image: url(../download/mi-home.png);
+    left: -55px;
+}
+/* 设置logo动画 */
+.logo:hover .mi{
+    left: 55px;}
+/* 设置logo动画 */
+.logo:hover .home{
+    left: 0px;
+}
+/* 设置头部中间导航条外部容器 */
+.header .nav-wrapper {
+    padding-left: 58px;
+    float: left;
+    line-height: 100px;
+    background-color: transparent;
+    margin-left: 7px;
+}
+/* 设置头部中间导航条横向 */
+.header .nav-wrapper .nav > li{
+    float: left;
+}
+
+.nav-wrapper  li a {
+    display: block;
+    font-size: 16px;
+    margin-right: 20px;
+}
+.nav-wrapper li a:hover{
+    color: #ff6700;
+}
+/* 隐藏全部商品 */
+.nav-wrapper ul li:first-of-type >a{
+    visibility: hidden;;
+}
+/* 弹出层 */
+.nav .goods-info{
+    height: 0px;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .1);
+    overflow: hidden;
+    transition: 0.3s height;
+    z-index: 9998;
+}
+
+
+.nav-wrapper .show:hover ~ .goods-info{
+    height: 228px;
+    border: 1px solid rgb(224, 224, 224);
+}
+
+.search-wrapper{
+    width: 276px;
+    height: 50px;
+    float: right;
+    margin-top: 25px;
+  
+  }
+  
+  .search-wrapper .search-inp{
+    box-sizing: border-box;
+    float: left;
+    padding: 0px;
+    height: 50px;
+    border: 1px solid rgb(224, 224, 224);
+    width: 224px;
+    padding: 0 10px;
+    font-size: 16px;
+    border-right: none;
+    outline: none;
+  }
+  
+  .search-wrapper .search-inp:focus,
+  .search-wrapper .search-inp:focus + .search-but{
+  border-color: #ff6700;
+  }
+  .search-wrapper .search-but{
+    float: left;
+    height: 50px;
+    width: 51px;
+    padding: 0;
+    border: 1px solid rgb(224, 224, 224);
+    background-color: #ffffff;
+    color: #616166;
+    outline: none;
+  }
+  
+  .search-but i{
+    font-size: 20px;
+  
+  }
+  
+  .search-but:hover{
+    border: none;
+    background-color: #ff6700;
+    color: #ffffff;
+  }
+  
+
+
+/* 左侧导航条 */
+.left-nav{
+    background-color:rgba(0, 0, 0, 0.6);
+    height: 420px;
+    width: 234px;
+    padding: 20px 0px;
+    position: absolute;
+    left: 0px;
+    z-index: 999;
+}
+
+.nav li .left-nav a{
+    height: 42px;
+    margin-right: 0px;
+    line-height: 42px;
+    color: #fff;
+    padding-left: 30px;
+    font-size: 14px;
+
+}
+.left-nav a i{
+    float: right;
+    margin-right: 20px;
+}
+
+.nav li .left-nav a:hover{
+    color: #ffffff;
+    background-color: #ff6700;
+}
+
+.banner{
+    position: relative;
+    height: 460px;
+}
+
+.banner img{
+    width: 100%;
+    position: absolute;
+    height: 460px;
+}
+
+.pointer{
+    position: absolute;
+    right: 0px;
+    bottom: 10px;
+    margin-right: 20px;
+}
+
+.pointer a {
+    float: left;
+    border: solid 0px red;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(224, 224, 224);
+    margin-right: 4px;
+}
+
+.pointer a:hover{
+    background-color: #fff;
+}
+
+.pre-next a{
+    width: 41px;
+    height: 69px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    background-image: url(../img/icon-slides.png);
+
+}
+
+.pre-next .pre{
+    left: 234px;
+    background-position: -84px 0;
+}
+
+.pre-next .next{
+    right: 0;
+    background-position: -125px 0;
+}
+
+.pre-next .pre:hover{
+    background-position: 0;
+}
+
+.pre-next .next:hover{
+    background-position: -42px 0;
+}
+
+
+.to-top{
+    width: 26px;
+    height: 206px;
+    background-color: #bbffaa;
+    position: fixed;
+    bottom: 60px;
+    right: 50%;
+    margin-right: -639px;
+    /*  布局等式
+        left + margin-left + width + margin-right + right = 包含块宽度（视口宽度）
+
+        auto + 0 + 26 + 0 + 60 = 视口
+        auto + 0 + 26 + 0 + 50% = 视口
+
+    
+    
+    */
+}
+
+.adcontent{
+    height: 170px;
+    background-color: ivory;
+    margin-top: 14px;
+}
+
+.adcontent ul,
+.adcontent li{
+    float: left;
+}
+
+.adcontent .shortcut{
+    width: 231px;
+    padding-top: 2px;
+    padding-left: 3px;
+    height: 168px;
+    background-color: #5f5750;
+    margin-right: 14px;
+}
+
+.shortcut a{
+    display: flow-root;
+    height: 84px;
+    width: 76px;
+    color: #cfccca;
+    text-align: center;
+    
+}
+
+.shortcut a i{
+    display: block;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.shortcut a:hover{
+    color: #fff;
+}
+.shortcut li{
+    position: relative;
+}
+
+.shortcut li::before{
+    content: "";
+    width: 64px;
+    height: 1px;
+    background-color: #665e57;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    margin: 0 auto;
+}
+
+.shortcut li::after{
+    content: "";
+    width: 1px;
+    height: 72px;
+    background-color: #665e57;
+    position: absolute;
+    left: 0px;
+    top: 6px;
+    right: 0px;
+
+}
+
+.adcontent .imglist li{
+    width: 316px;
+    margin-right: 15px;
+}
+
+.adcontent .imglist li:last-child{
+    margin-right: 0px;
+}
+
+.imglist img{
+    width: 100%;
+    vertical-align: top;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            height: 200px;
+            width: 200px;
+            background-color: aqua;
+        }
+
+        .box2 {
+            height: 200px;
+            width: 200px;
+            background-color: yellow;
+
+            /* position: absolute; */
+        }
+
+        .box3 {
+            height: 800px;
+            width: 800px;
+            background-color: orange;
+            position: relative;
+        }
+
+        .box4 {
+            height: 400px;
+            width: 400px;
+            background-color: #bbffaa;
+            /* position: relative; */
+        }
+
+        .box5 {
+            height: 200px;
+            width: 200px;
+            background-color: violet;
+            left: 0;
+            top: 0%;
+            /*
+                当元素的position属性设置为fixed时，开启固定定位
+
+                固定定位也是一种绝对定位，所以固定定位大部分特点和绝对定位一样
+
+                    唯一不同的是固定定位永远参考于浏览器
+   
+                
+
+
+
+             */
+
+            position: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3
+        <div class="box4">4
+            <div class="box5">5</div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

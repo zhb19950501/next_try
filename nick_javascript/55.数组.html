@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 创建一个数组
+        var arr = new Array();
+
+        // 使用字面量创建数组
+        var arr = [];
+
+        // 使用字面量创建数组时，在创建时就可以指定数组中的元素
+        var arr = [1,2,3,4,5,10];
+
+        // 使用构造函数创建数组时，也可以同时添加元素，将要添加的元素作为构造函数的参数传递
+        var arr2 = new Array(1,2,43,4,5);
+
+        // 创建一个数组，数组中只有一个元素10
+        arr = [10];
+        // 创建一个长度为10的数组
+        arr2 = new Array(10);
+
+        // 数组中的元素可以时任意的数据类型
+        arr= ["hello",1,true,null,undefined];
+        // 也可以是对象
+        var obj = {name:"孙悟空"};
+        arr[arr.length] = obj;
+        // 也可以是函数
+        arr = [function(){}]
+        // 调用存放的函数
+        arr[0]()
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

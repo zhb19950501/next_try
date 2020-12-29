@@ -1,0 +1,8 @@
+body {
+  width: 1000px;
+  height: 1000px;
+}
+body .box1 {
+  width: 100px;
+  height: 100px;
+}

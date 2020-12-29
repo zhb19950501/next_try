@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /*
+            在定位中，子元素的left值是相对于父元素的内容区的
+                padding是属于内容区域的
+                也就是当子元素left和top设置为0时，子元素的外边界顶点会与父元素的内容区顶点重合
+        
+          */
+        .box1{
+            width: 400px;
+            height: 400px;
+            background-color: #bbffaa;
+            margin: 0 auto;
+            position: relative;
+            padding: 20px;
+            border: 40px solid yellow;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: violet;
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

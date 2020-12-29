@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        对象属性
+            - .innerHTML
+                获取元素内部的HTML代码
+                对于自结束标签，这个属性没有意义
+
+            - .innerText
+                获取元素内部的文本内容
+                与innerHTML类似，不同的是他会自动将标签名称去除
+            
+            - .属性名
+                读取元素节点的属性
+                如 元素.id   元素.name
+                注意： class属性读取时，需要使用元素.className进行读取
+
+                - 文本框.value
+                    获取文本框中填写的内容
+
+
+
+        获取元素节点：
+        方法：
+                1.查找指定id的节点
+                - document.getElementById("btn")
+                    获取id为btn的对象
+            
+                2.查找指定标签的节点
+                - document.getElementsByTagName("button")
+                    获取标签为button的对象们，以集合的方式返回
+
+                3.通过name属性获取一组元素节点对象
+                -document.getElementsByName("gender")
+                    获取name属性名称为gender的对象们，以集合的方式返回
+        
+        
+        
+        获取元素节点的子节点
+        方法：    
+                1.返回当前节点的指定标签名后代节点
+                 - 元素.getElementsByTagName("")
+                    以集合形式返回
+
+        属性：
+                1.表示当前节点的所有子节点
+                - 元素.childNodes
+                    该属性会获取包括文本节点在内的所有节点，也就是在各个标签之间的空白部分也会被当作是一个文本节点
+                    在IE8以下的浏览器中，不会将空白文本当作子节点
+
+
+                2.表示当前节点的第一个子节点
+                - 元素.firstChild
+                    获取第一个子节点，会获取到空白文本节点
+
+                3.表示当前节点的最后一个子节点
+                - 元素.lastChild
+
+
+        
+
+
+        获取元素节点下的子元素
+        属性：
+                - 元素.children
+                    该属性只返回当前元素下的子元素，空白节点不会被返回。
+
+                - 元素.firstElementChild
+                    返回当前元素下的第一个子元素
+                    兼容IE9以上，IE8以下不兼容
+                
+                - 元素.lastElementChild
+                    返回当前元素下的第一个子元素
+                    兼容IE9以上，IE8以下不兼容            
+                     
+        
+        
+
+        获取父节点和兄弟节点
+        属性：
+                1.返回当前节点的父节点
+                    元素.parentNode
+                
+                2.返回当前节点的前一个兄弟节点
+                    元素.previousSibling
+                
+                3.返回当前节点的后一个兄弟节点
+                    元素.nextSibling
+                    
+        
+        */ 
+
+
+
+
+        window.onload = function(){
+            var findID = document.getElementById("btn");
+            
+            findID.onclick = function(){
+                var bj = document.getElementsById("bj");
+                alert(bj.innerHtml)
+
+            }
+            var findTag = document.getElementsByTagName("button");
+            var findPro = document.getElementsByName("gender")
+            var findlc = document.lastElementChild
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

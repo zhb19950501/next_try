@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bbffaa;
+            /* 盒子宽高以可见区的大小进行设置 */
+            box-sizing: border-box;
+            margin: 0 auto;
+            border: red 10px solid;
+            /* 盒子宽高以内容区的大小进行设置 */
+            box-sizing: content-box;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        我是一个盒子
+    </div>
+    <div class="box2">
+        我是一个一样大的盒子
+    </div>
+</body>
+</html>

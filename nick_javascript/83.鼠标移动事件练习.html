@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bbffaa;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var box1 = document.getElementById("box1");
+            document.onmousemove = function(e){
+                e = e||window.e;
+
+                /*
+                .clientX
+                .clientY
+                    这两个属性获取的是鼠标对于可见窗口的坐标
+                    
+                    而div的偏移量，是相对于整个页面的
+
+                    如果页面出现了滚动条，那滚动条的距离会导致二者出现偏离~
+
+                    所以把滚动条的距离加上去就好了~
+
+                    滚动条的是html的~可以通过html获得滚动条滚动的距离
+
+                .pageX
+                .pageY
+                    这两个属性获取的是相对于页面的坐标
+                    但是这两个属性在IE8里不支持
+
+                */ 
+                var x = e.clientX;
+                var y = e.clientY;
+
+                // var x = e.pageX;
+                // var y = e.pageY;
+                var sc = document.documentElement.scrollTop
+
+                box1.style.left = x + "px";
+                box1.style.top = y + sc + "px";
+            }            
+            
+
+            
+        }
+
+    </script>
+</head>
+<body style="height: 1000px;">
+    <div id="box1"></div>
+</body>
+</html>

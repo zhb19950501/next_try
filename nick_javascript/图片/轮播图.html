@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #outer {
+            margin: 50px auto;
+            width: 610px;
+            height: 470px;
+            padding: 10px 0;
+            background-color: #bbffaa;
+            overflow: hidden;
+            position: relative;
+
+        }
+
+        #imgList {
+            /* display: none; */
+            width: 4000px;
+            list-style: none;
+            position: absolute;
+        }
+
+        #imgList li {
+            margin: 0 10px;
+            width: 590px;
+            float: left;
+        }
+
+        #navDiv {
+            position: absolute;
+            bottom: 15px;
+        }
+
+        #navDiv a {
+            float: left;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+            margin: 0 5px;
+            opacity: 80%;
+        }
+
+        #navDiv a:hover {
+            background-color: rgba(0, 183, 255, 0.705);
+        }
+    </style>
+    <script src="../JS/script.js"></script>
+    <script>
+        window.onload = function () {
+            var lis = document.getElementsByTagName("li");
+            var imgList = document.getElementById("imgList");
+            // 为imgList写适应宽度
+            imgList.style.width = lis.length * 610 + "px";
+
+            // 为navDiv设置居中
+            var navDiv = document.getElementById("navDiv");
+            var outer = document.getElementById("outer");
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px";
+
+            // 设置导航点默认选中
+            var index = 0;
+            var allA = document.getElementsByTagName("a");
+            allA[index].style.backgroundColor = "rgba(0, 183, 255, 0.705)"
+
+            // 设置点击超链接，切换到对应图片
+            // 即为超链接绑定单击响应函数
+
+            for (i = 0; i < allA.length; i++) {
+                allA[i].num = i;
+                allA[i].onclick = function () {
+                    clearInterval(autoChangeTimer)
+                    index = this.num;
+                    // 切换图片的原理为修改imgList的left值
+                    // imgList.style.left = -610*index + "px"; 
+                    // 需要一个方法，来设置导航点根据实际点击情况进行修改
+                    move(imgList, "left", -610 * index, 30, 30, function () {
+                        autoChange()
+                    })
+                    setA()
+
+                }
+            }
+            autoChange()
+            // 设置一个方法，来设置导航点根据点击进行修改
+            function setA() {
+                // 当图片轮播到最后一张（与第一张一致）时，将导航点切换为第一个
+                if (index >= lis.length - 1) {
+                    index = 0;
+                }
+                // 将所有A的内联样式去除，恢复为最初颜色，再给点击的那个A绑定颜色
+                for (i = 0; i < allA.length; i++) {
+                    allA[i].style.backgroundColor = "";
+                    allA[index].style.backgroundColor = "rgba(0, 183, 255, 0.705)";
+                }
+            }
+
+
+            // 创建一个函数，来控制轮播图自动切换
+            var autoChangeTimer
+            function autoChange() {
+                autoChangeTimer = setInterval(function () {
+                    // 切换到下一张图片，也就是使索引自增
+                    index++;
+                    // 执行动画，切换图片
+                    move(imgList, "left", -610 * index, 30, 30, function () {
+                        // 修改导航点
+
+                        if (index >= lis.length - 1) {
+                            index = 0;
+                            imgList.style.left = "0px";
+                        }
+                        setA();
+                    })
+                }, 2000)
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="outer">
+        <ul id="imgList">
+            <li><img src="./1.jpg.webp"></li>
+            <li><img src="./2.jpg.webp"></li>
+            <li><img src="./3.jpg.webp"></li>
+            <li><img src="./4.jpg.webp"></li>
+            <li><img src="./5.jpg.webp"></li>
+            <li><img src="./1.jpg.webp"></li>
+
+        </ul>
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+
+</body>
+
+</html>

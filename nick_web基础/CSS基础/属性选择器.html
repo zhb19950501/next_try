@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 属性选择器
+            [属性名]选择含有指定属性的元素
+            [属性名=属性值] 选择含有指定属性和属性值的元素
+            [属性名^=属性值] 选择属性值以指定值开头的元素
+            [属性名$=属性值] 选择属性值以指定值结尾的元素
+            [属性名*=属性值] 选择属性值包含指定值的元素
+         */
+        /* p[title]{color: blue;}  */
+        p[title^='b']{color: red;}
+    </style>
+</head>
+<body>
+
+    <p title="a">你是谁</p>
+    <p title="b">谁是你</p>
+    <p title="aa">我是谁</p>
+    <p title="asddafasaa">谁是我</p>
+    <p>啊呀</p>
+
+    
+</body>
+</html>

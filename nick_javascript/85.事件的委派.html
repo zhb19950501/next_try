@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 为需要绑定同样的事件的元素，绑定同一个事件，可以利用事件的冒泡，给他们公厅的父元素添加这个事件来达到值写一次的效果~
+        // 再利用事件对象的target属性判断是否是要绑定事件的元素~来实现只给指定元素添加
+        window.onload = function () {
+            var ul = document.getElementById("list");
+            ul.onclick = function (e) {
+                e = e || window.e;
+
+                if (e.target.className == "link") {
+
+                    alert("哎呀被点了")
+
+                }
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="list">
+        <li><a href="#" class="link">1</a></li>
+        <li><a href="#" class="link">2</a></li>
+        <li><a href="#" class="link">3</a></li>
+        <li><a href="#" class="link">4</a></li>
+    </ul>
+    <!-- <button>单击添加~</button> -->
+</body>
+
+</html>

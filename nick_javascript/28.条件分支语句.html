@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            条件分支语句也叫做switch语句
+            语法：
+                switch(条件表达式){
+                    case表达式：
+                        语句;
+                        break;
+                    case表达式：
+                        语句;
+                        break;
+                    case表达式：
+                        语句;
+                        break;
+                    ……
+                    default:
+                        语句;
+                }
+
+                
+                依次判断switch后的条件表达式的值与case后的表达式的值是否全等
+                    若结果为true，则执行case后的所有语句
+                    若结果为false，则继续向下执行
+
+                    如果不加break，会执行case满足条件后的所有语句    
+
+        */
+                var a=23;
+                switch(a){
+                    case 1:
+                        console.log("1");
+                        break;
+                    case 2:
+                        console.log("2");
+                        break;
+                    default:
+                        console.log("not 1&2");
+                        break;
+
+                }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

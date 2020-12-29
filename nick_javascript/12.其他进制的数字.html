@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 在JS中,如果要表示16进制的数字,则需要以0X开头
+        // 8进制的数字,以0开头
+        // 2进制的数字,以0b开头 
+        var a;
+        a = 0xca;
+        a = 070
+        a = "070"
+        // 像"070"这种字符串,有的浏览器会当成8进制解析,有的按照10进制解析
+        a = parseInt(a,10)
+        // 可以给parseInt()函数里传入第二个参数,指定a的解析形式
+        console.log(a);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

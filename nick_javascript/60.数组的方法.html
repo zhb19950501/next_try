@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        1.concat()可以连接两个或者多个数组，并将新的数组返回
+            - 该方法不会对原数组产生影响
+
+        2.join()可以将数组转换为字符串
+            - 该方法不会对原数组产生影响
+            - 在join中可以指定一个字符串作为参数，这个字符串将会作为数组中元素的连接符
+                默认为，
+
+        3.reverse()可以反转数组，前面的去后面，后面的去前面
+            - 该方法直接修改原数组
+
+        4.sort()可以对数组中的元素进行排序
+            - 该方法直接修改原数组
+            - 默认按照unicode编码进行排序
+                - 对数字进行排序时，可能会得到错误的结果
+                - 可以自己指定排序的规则
+                    我们可以在sort()中添加一个回调函数，来指定排序规则
+                    回调函数需要定义两个形参，浏览器会分别使用数组中的元素作为实参去调用回调函数
+                    但是使用哪个元素调用不确定，但是肯定的是在数组中a一定在b前边
+                    
+
+        */
+        var arr = [1,2,3];
+        var arr1 = [4,5,6,11]
+        var result = arr.concat(arr1)
+        console.log("result = "+ result)
+        result = arr.join("\n")
+        console.log("result = "+ result)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

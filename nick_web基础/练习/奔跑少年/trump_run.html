@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            perspective: 800px;
+            border: tomato 1px solid;
+
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            margin: 100px auto;
+            background-image: url(./trump_run.png);
+            animation:run 0.5s steps(5) infinite;
+            transition: 2s;
+
+
+        }
+
+        body:hover .box1{
+            transform: translateZ(600px);
+        }
+
+        @keyframes run{
+            from{
+                background-position: top left;
+
+            }
+
+            to{
+                background-position: top right;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

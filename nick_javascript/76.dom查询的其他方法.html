@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        1.获取body
+            document.body
+        2.获取html
+            document.documentElement
+        3.所有元素
+            document.all
+            document.getElementsByTagName("*")
+        4.根据class属性值查询
+            document.getElementsByClassName()
+            该方法不支持IE8
+        5.根据CSS选择器来查询元素节点对象
+            document.querySelector(".box1 div")
+            这个方法支持IE8~
+            使用该方法总会返回唯一的一个元素，如果满足条件的元素有多个，那么它只会返回第一个
+
+            document.querySelecorAll(".box1")
+            这个方法会返回所有满足条件的~结果封装在数组中进行返回，就算结果只有一个，也会封装在数组里返回
+        
+        
+        
+        
+        */ 
+
+        var div = document.querySelector(".box1 div")
+        var divs = document.querySelectorAll(".box1 div")
+    </script>
+</head>
+<body>
+    <div class="box1">
+        <div>我是box1里的</div>
+    </div>
+    <div></div>
+</body>
+</html>

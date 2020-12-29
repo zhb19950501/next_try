@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            原型prototype
+                
+                
+                我们创建的每一个函数，解析器都会向函数中添加一个属性prototype
+                    这个属性对应着一个对象，这个对象就是我们所谓的原型对象
+                
+                如果函数作为普通函数调用prototype没有任何作用
+
+                当函数以构造函数的形式调用时，它所创建的对象都会有一个隐含的属性，
+                    指向该构造函数的原型对象，我们可以通过__proto__来访问该属性
+
+                原型对象就相当于一个公共区域，所有同一个类的实例都可以访问到这个原型对象
+                    我们可以将对象中的公共内容，统一设置到原型对象中
+                
+                当我们访问对象的一个属性或者方法时，会现在对象自身中寻找，
+                    如果有，则直接使用，
+                    如果没有，则会去原型中找，直到找到object对象的原型
+                    object对象的原型没有原型，如果在object中依然没有找到,是null时，则返回undefined
+        */
+
+        function fun(){
+
+        } ;
+        console.log(fun.prototype);
+
+
+        function MyClass(name,age){
+            this.name = name;
+            this.age = age;
+
+        };
+        // 向MyClass的原型中添加a属性
+        MyClass.prototype.a = 123;
+
+        // 向MyClass的原型中添加方法
+        MyClass.prototype.sayName = function(){
+            console.log(this.name)
+        };
+
+        var mc = new MyClass("amy",19);
+        var mc2 = new MyClass();
+
+        console.log(mc.a);
+        mc.sayName();
+
+        // object 的原型是null？？？？
+        console.log(mc.__proto__.__proto__.__proto__)
+        
+        console.log(Object().__proto__)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

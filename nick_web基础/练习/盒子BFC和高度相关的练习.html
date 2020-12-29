@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .p1:not(:first-of-type){
+            margin-top: 120px;
+        }
+        .box1{
+            width: 400px;
+            background-color: #bbffaa;
+            border: black 1px solid;
+        }
+        .box2{
+
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+
+        }
+        .box3{
+
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+        .float{
+            float: left;
+
+        }
+        .bfc{
+            /* display: table; */
+            display: flow-root;
+
+        }
+        .clearfix::after,
+        .clearfix::before{
+            content:"";
+            display: table;
+            clear: both;
+
+        }
+        /* 
+        1、正常情况下，父元素高度被子元素撑开
+        2、当父元素内的子元素浮动,父元素的高度无法被撑开
+            - 猜想：浮动让内部变成了一块新的区域，开启了BFC，那么它就脱离了文档流，
+                但是html是一个BFC，还是在html这个BFC里的
+
+            -解决办法就是：
+                让父元素变成一块BFC，这样就能包裹住这个浮动元素啦~
+                但是据老师说，BFC的开启方法们都会有一些副作用
+                - 教程里告诉我，以flow-root模式开启BFC没有副作用呢
+        3、clearfix
+            子元素脱离文档流后，父元素里就没东西撑开了
+                - 如果父元素的浮动元素后还有别的子元素，那么它就不会塌了
+                - 所以通过一个伪类给父元素里加上一个元素~同时让这个元素不受到其他元素浮动的影响，就可以完美撑开父元素了
+                    -::after伪类用于撑开父元素
+                - 顺带解决一下父元素的margin会被子元素影响的问题
+                - margin-top的影响需要满足两个条件：
+                    1、父元素的相邻子元素
+                    2、垂直方向的外边距
+                        -::before伪类用于解决父元素和子元素外边距重叠的问题
+                -content内容设置为“”，此时会认为行内元素没有东西，是达不到撑开的效果的
+                -需要把元素开启BFC，修改一下display
+                 
+
+            
+         */
+
+    </style>
+</head>
+<body>
+    <div class="p1">
+        <div class="box1">
+            <div class="box2"></div>
+            <div class="box3"></div>
+        </div>
+    
+    </div>
+    <div class="p1">
+        <div class="box1">
+            <div class="box2 float"></div>
+            <div class="box3 float"</div>
+        </div>
+    </div>
+
+    <div class="p1">
+        <div class="box1 bfc">
+            <div class="box2 float"></div>
+            <div class="box3 float"</div>
+        </div>
+    </div>
+
+    <div class="p1">
+        <div class="box1 clearfix">
+            <div class="box2 float"></div>
+            <div class="box3 float"</div>
+        </div>
+    </div>
+
+</body>
+</html>

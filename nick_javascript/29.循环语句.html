@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        while循环
+            - 语法：
+                while（条件表达式）{
+                    语句……
+                }
+            - while语句在执行时
+                先对条件表达式进行求值判断
+                    如果值为true，则执行循环体，
+                        循环体执行完毕以后，继续对表达式进行判断
+                        如果结果为true，则继续执行循环体，依次类推
+
+        Do while循环
+            -语法：
+                do{
+                    语句……
+                }
+                while(条件表达式);
+            -执行流程：
+                先执行循环体，循环体执行完毕后，再对while后的条件表达式进行判断
+                如果结果为true，则继续执行循环
+                结果为false，则终止
+        
+        
+        
+        */
+        var n = 1;
+        // 死循环
+        while (true) {
+            alert(n++);
+            if(n==10){
+                // 退出循环
+                break;
+            }
+        }
+
+
+        /*
+        向页面连续输出数字
+        */
+        var n = 1
+        document.write(n++ + "<br>");
+        document.write(n++ + "<br>");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
