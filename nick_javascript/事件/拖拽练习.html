@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            1.当鼠标按下时，开始拖拽 onmousedown
+            2.当鼠标移动时，跟随移动 onmousemove
+            3.当鼠标松开时，结束拖拽 onmouseup       
+        
+        
+        */
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+
+
+            box1.onmousedown = function (e) {
+                var ox = e.pageX - box1.offsetLeft;
+                var oy = e.pageY - box1.offsetTop;
+                box1.setCapture && box1.setCapture();
+
+
+                document.documentElement.onmousemove = function (e) {
+                    var x = e.pageX - ox;
+                    var y = e.pageY - oy;
+                    box1.style.left = x + "px";
+                    box1.style.top = y + "px";
+
+                }
+                /*
+                当我们拖拽一个网页中的内容时，浏览器回默认去搜索引擎中搜索内容
+                此时会导致拖拽功能异常，这是浏览器的默认行为
+
+                我们可以通过给事件设置一个return false来取消默认行为
+                
+                但是对IE8不起作用。
+                
+                使用.setCapture()方法来设置
+                    当调用一个元素的setCapture方法以后，这个元素会将下一次所有的鼠标按下相关的事件捕获到自身上
+                    该方法只有IE有，chrome会报错
+                    box1.setCapture && box1.setCapture()
+                    这个写法相当于
+                    if（box1.setCapture）{box1.setCapture()}
+
+
+                
+                */
+                return false;
+            }
+
+
+            box1.onmouseup = function () {
+                document.documentElement.onmousemove = null;
+                
+                box1.releaseCapture && box1.releaseCapture();
+                return false
+                
+
+            }
+
+        }
+
+
+
+
+    </script>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bbffaa;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1"></div>
+</body>
+
+</html>
