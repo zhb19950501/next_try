@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bbffaa;
+            position: absolute;
+            left: 0px;
+
+        }
+        #line800{
+            width: 0px;
+            height: 200px;
+            background-color: black;
+            border: 2px solid black ;
+            position: absolute;
+            top: 0px;
+            left: 800px;
+        }
+    </style>
+    <script>
+        // 单击按钮，使盒子向右移动至800px处停止，盒子没30ms移动一次，单次移动距离为11px
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            var btn1 = document.getElementById("btn1");
+            var timer
+            btn1.onclick = function () {
+                // 取消定时器，避免单击多次导致生成多个计时器影响实际的移动
+                速度
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    var left = parseInt(getComputedStyle(box1).left);
+                    var speed = 11;
+                    left += speed
+                    if(left>800){
+                        left = 800
+                    }
+                    box1.style.left = left + "px";
+                }, 30)
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn1">单击按钮盒子向右移动</button>
+    <br><br>
+    <div id="box1"></div>
+    <div id="line800"></div>
+</body>
+
+</html>

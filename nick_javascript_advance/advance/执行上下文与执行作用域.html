@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        执行上下文：
+            全局执行上下文
+                在全局代码执行前，确定全局执行上下文对象，window
+                确定后，执行收集数据动作，将var 关键字后的变量定义为window 的属性，值为undefined，
+                    function后的函数变量定义为 window的方法
+                开始执行全局代码
+
+
+            函数执行上下文
+                在函数被调用时，确定函数执行上下文对象
+                对局部变量进行预处理：
+                    形参 ==> 赋值（实参） ==> 添加为函数执行上下文对象的属性
+                    arguments ==> 赋值（实参列表），添加为执行上下文的属性
+                    var 定义的局部变量 ==> undefined，添加为执行上下文的属性
+                    function声明的函数 ==> 赋值（fun） ，添加为执行上下文的方法
+                    this ==> 赋值（调用函数的对象）
+
+                
+                
+                函数执行完毕后，函数执行上下文中的变量自动回收
+
+        执行作用域：
+            在代码编写完成时，就确定了作用域了，也就是各个代码包裹着的部分
+            找变量是在作用域中找的
+        
+        
+        
+        */ 
+        var x =10
+        function fn1(){
+            console.log(x)
+        }
+        function fn2(f){
+            var x = 20
+            f()
+        }
+        fn2(fn1) // 10
+        function fn3(){
+            var x = 30
+            function fn4(){
+                console.log(x)
+            }
+            fn4()
+        }
+        fn3() // 30
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

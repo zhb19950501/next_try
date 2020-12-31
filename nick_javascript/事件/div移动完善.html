@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+
+    <script>
+        // 在div刚启动时，会有一个小卡顿，开启一个定时器控制div的移动方向来解决这个问题
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            var s = box1.style;
+            var code = 0;
+            var speed = 10;
+            setInterval(function () {
+                // 左方向37 右方向键39 上38 下40
+                if (code === 37) {
+                    s.left = box1.offsetLeft - speed + "px";
+                }
+                else if (code === 39) {
+                    s.left = box1.offsetLeft + speed + "px";
+                }
+                else if (code === 38) {
+                    s.top = box1.offsetTop - speed + "px";
+                }
+                else if (code === 40) {
+                    s.top = box1.offsetTop + speed + "px";
+
+                }
+            }, 30)
+
+            document.onkeydown = function (event) {
+                event = event || window.event;
+                code = event.keyCode;
+                if (event.ctrlKey) {
+                    speed = 50;
+                }
+                else {
+                    speed = 10;
+                }
+            }
+            document.onkeyup = function () {
+                code = 0;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+</body>
+
+</html>

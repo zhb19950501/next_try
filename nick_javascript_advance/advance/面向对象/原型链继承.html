@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       /*
+       方式一：原型链的继承
+        1.套路
+            - 定义父类型构造函数
+            - 给父类型的原型添加方法
+            - 定义子类型的构造函数
+            - 创建父类型的对象赋值给子类型的原型
+            - 将子类型原型的构造属性设置为子类型
+            - 给子类型原型添加方法
+            - 创建子类型的对象：可以调用父类型的方法
+        2.关键
+            子类型的原型为父类型的一个实例对象
+
+      
+       */ 
+
+       function Parent1(){
+            this.fpro = 'fuqin property'
+       }
+       Parent1.prototype.showFQpro = function(){
+           console.log(this.fpro)
+       }
+
+       function Son1(){
+        this.zpro = "erzi property"
+       }
+       // 这样会把这个showEZpro方法加到Son1默认的那个空的显示原型对象里，后头会变成垃圾对象
+       Son1.prototype.showEZpro = function(){
+           console.log(this.zpro)
+       }
+       // 将Son1的显示原型对象从空对象重新变成Parent1的实例，原来的空对象变成垃圾对象
+       Son1.prototype = new Parent1()
+       // 要给这个新的显示原型添加上constructor属性，要不然会继续往上找constructor
+       Son1.prototype.constructor = Son1
+
+       var son1 = new Son1()
+        // showEZpro这个方法没有加到新的Son1显示原型里，所以调用时会报错
+       console.log(son1)
+       console.log(son1.fpro,son1.zpro,son1.showEZpro())
+       /*
+       如何让Son1与Parent1构成继承关系呢？
+        Son1创建的实例，能访问到Parent1的原型
+            Son1 创建了实例 son1 ，那么son1.__proto__ = Son1.prototype
+            Son1.prototype.__pro__ = Parent.prototype
+       */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

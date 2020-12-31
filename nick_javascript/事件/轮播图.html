@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        #outer{
+            width: 1246px;
+            height: 460px;
+            margin: 50px auto;
+            background-color: #bbffaa;
+            padding: 10px 0;
+            /* overflow: hidden; */
+            position: relative;
+
+        }
+        #imgList{
+            /* width: 4000px; */
+            list-style: none;
+            position: absolute;
+            
+        }
+        /* 设置li浮动 */
+        #imgList li{
+            width: 1226px;
+            float: left;
+            margin:0 10px;
+        }
+
+
+        #outer li img{
+            width: 1226px;
+        }
+
+        /* 设置导航按钮 */
+        #navDiv{
+            position: absolute;
+            bottom: 15px;
+        }
+
+        #navDiv a{
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 50%;
+            float: left;
+            background-color: rgba(255, 255,255,0.3);
+        }
+        #navDiv a:hover{
+            background-color: white;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var imgList = document.getElementById("imgList");
+            var imgArr = imgList.getElementsByTagName("img");
+            imgList.style.width = imgArr.length*1246 +"px";
+            var navDiv = document.getElementById("navDiv");
+            navDiv.style.left = (navDiv.parentElement.offsetWidth-navDiv.offsetWidth)/2 + "px"
+            // 点击不同的按钮，实现图片切换
+            var allA = document.getElementsByTagName("a");
+            var index=0;
+            for(i=0;i<allA.length;i++){
+                allA[i].num = i;
+                allA[i].onclick = function(){
+                    index = this.num;
+                    imgList.style.left = -1246*index+"px";
+                    setA()
+
+                }
+            }
+
+            // 设置初始状态点为第一个小圆点
+            allA[index].style.background = "white";
+            // 编写一个函数，在点击小圆点后，先清空所有a的背景，再给点击的那个a加上背景
+            function setA(){
+                for(i=0;i<allA.length;i++){
+                    allA[i].style.backgroundColor = "";
+                    allA[index].style.backgroundColor = "white";
+                }
+            }
+
+            // 编写一个循环播放的函数
+            function autoChange(){
+                setInterval(function(){
+                    
+                },3000)
+            }
+
+
+        }
+
+    </script>
+</head>
+<body>
+    <!-- 创建一个外部div 来作为大的容器 -->
+    <div id="outer">
+        <!-- 创建一个ul，用于放置图片 -->
+        <ul id="imgList">
+            <li>
+                <img src="..//轮播图/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="..//轮播图/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="..//轮播图/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="..//轮播图/1.jpg" alt="">
+            </li>
+        </ul>
+        <!-- 创建导航连接 -->
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <!-- <a href="javascript:;"></a> -->
+            <!-- <a href="javascript:;"></a> -->
+        </div>
+    </div>
+</body>
+</html>

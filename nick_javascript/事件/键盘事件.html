@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+
+            /*
+            onkeydown
+                - 按键按下
+                - 对于onkeydown来说，如果一直按着不松手，它会一直被触发
+                - 当onkeydown连续触发时，第一次和第二次之间间隔会稍微长一些，其他的会非常的快
+                    这种设计是为了防止误操作的发生
+                
+            onkeyup
+                - 按键松开
+
+            键盘事件一般都绑定给一些可以获取到焦点的对象,或者是document
+            
+
+            
+            */
+            document.onkeydown = function (event) {
+                // console.log("按键被按下了")
+                event = event || window.event;
+                /*
+                可以通过keyCode来获取按键的编码
+                通过它可以判断那个按键被按下
+                */
+                if(event.keyCode === 89){
+                    console.log("y被按下了")
+                }
+
+                /*
+                判断多个按键是否被同时按下
+                    除了keyCode，事件对象中含提供了几个属性
+                altKey
+                ctrlKey
+                shiftKey
+                    - 这三个用来判断alt ctrl shift是否被按下 
+                    如果被按下，返回true，否则返回false
+                
+                */
+
+                if(event.keyCode === 89 && event.ctrlKey){
+                    console.log("ctrl 和 y都被按下了")
+                }
+            }
+
+            /*
+            在文本框中输入内容，属于onkeydown的默认行为
+            如果在onkeydown中取消默认行为，则输入的内容不会出现在文本框中
+            数字键盘码 48-57
+            */
+            //使文本框内无法输入数字    
+           var input = document.getElementById("input");
+           input.onkeydown = function(event){
+                if(event.keyCode>=48&&event.keyCode<=57){
+                    return false
+                }
+           }
+
+
+
+            document.onkeyup = function () {
+                console.log("按键松开了")
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" name="" id="input">
+</body>
+
+</html>

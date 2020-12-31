@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fun(n,o){
+            console.log(o)
+            return{
+                fun:function(m){
+                    return fun(m,n)
+                }
+            }
+        }
+
+        var a = fun(0)// undefined
+
+        /*
+            预处理：n = 0， o = undefined
+            
+            代码执行，返回一个对象，对象中定义了一个方法fun
+                闭包产生条件：1、函数嵌套；2、内部函数定义被执行；3、内部函数中引用了外部函数的变量
+                返回的对象中的fun这个方法嵌套在 fun函数中，条件1满足
+                调用fun函数，执行到返回时，生成了对象，对象中定义了方法fun，此时内部函数定义被执行，条件2满足
+                对象中的fun方法，使用了外部变量n，条件3满足
+                因此生成了闭包，闭包中有一个属性n，为fun函数调用时传入的参数
+
+            a = {
+                fun:function(m){
+                    retrun fun(m,0)
+                }
+            }
+        
+        */
+
+        a.fun(0) // 0
+        /*
+        a = {
+                fun:function(m){
+                    retrun fun(m,0)
+                }
+            }
+
+        a.fun(0) 相当于调用上面对象里的fun函数,同时传入参数m = 0 
+            function(m){
+                retrun fun(m,0)
+            }  
+        即
+            function(0){
+                retrun fun(0,0)
+            }()
+        该函数执行后返回fun(0,0)
+           fun 函数长这样，也就是输出传入的o， 
+            function fun(n,o){
+                console.log(o)
+                return{
+                    fun:function(m){
+                        return fun(m,n)
+                    }
+                }
+            }
+        
+
+            function fun(0,0){
+                console.log(0)
+                return{
+                    fun:function(m){
+                        return fun(m,0)
+                    }
+                }
+            }()
+
+            没有变量接受返回值，就相当于只执行了一下console.log(0)，输出0
+
+        */
+
+        var b = fun(0).fun(1).fun(2).fun(3)
+        /*
+            fun(0)执行完，输出undefined
+            返回{
+                fun:function(m){
+                    return fun(m,0)
+                }
+            }
+
+            fun(0).fun(1)
+                就是执行 fun(1,0)
+                输出 0，返回{
+                    fun:function(m){
+                        retrun fun(m,1)
+                    }
+                }
+            
+            fun(0).fun(1).fun(2)
+                就是执行 fun(2,1)
+                输出 1，返回{
+                    fun:function(m){
+                        retrun fun(m,2)
+                    }
+                }
+
+            fun(0).fun(1).fun(2).fun(3)
+                就是执行 fun(2,1)
+                输出 2，返回{
+                    fun:function(m){
+                        retrun fun(m,3)
+                    }
+                }
+        
+        */
+
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
