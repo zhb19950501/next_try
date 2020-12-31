@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .out-wrapper {
+            width: 380px;
+            height: 300px;
+            margin: 100px auto;
+            position: relative;
+            border: 10px #bfa solid;
+            overflow: hidden;
+        }
+
+        .img-list {
+            position: absolute;
+            display: flex;
+
+        }
+
+        .img-list li:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        .nav-list-wrapper {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            bottom: 0px;
+        }
+
+        .nav-list {
+            /* background-color: black; */
+            display: flex;
+            height: 15px;
+            justify-content: center;
+        }
+
+        .nav-list a {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .nav-list a:hover {
+            background-color: #ffffff;
+        }
+
+        .nav-list a:last-child {
+            margin: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var imglist = document.getElementById("img-list")
+            var allA = document.getElementsByTagName("a")
+            var index = 0
+            var m
+
+            // 设置默认导航点
+            allA[0].style.backgroundColor = "#ffffff"
+
+            //  为导航点绑定单击函数
+            for (var i = 0, length = allA.length; i < length; i++) {
+                allA[i].num = i
+                allA[i].onclick = function () {
+                    clearInterval(autotimer)
+                    index = this.num
+                    imglist.style.left = -390 * index + "px"
+                    setA()
+                    clearTimeout(m)
+                    m = setTimeout(autochange, 2000)
+                }
+            }
+            // autochange()
+            // 设置导航点每次点击时的修改函数
+            function setA() {
+                for (var i = 0, length = allA.length; i < length; i++) {
+                    allA[i].style.backgroundColor = " rgba(255, 255, 255, 0.5)"
+                }
+                allA[index].style.backgroundColor = "#ffffff"
+
+            }
+            // 设置自动轮播的函数
+            var autotimer
+            function autochange() {
+                autotimer = setInterval(function () {
+                    index++
+                    move(imglist, "left", -390 * index, 30, 50, function () {
+                        if (index == length) {
+                            imglist.style.left = ""
+                            index = 0
+                        }
+                        setA()
+                    })
+                }, 2000)
+            }
+            autochange()
+
+            // 写一个move函数，实现移动动画
+            function move(obj, attr, destination, speed, interval, callback) {
+                var sattr = parseInt(getComputedStyle(obj)[attr])
+                var timer
+                // 修正speed的符号
+                if (sattr > destination && speed > 0) {
+                    speed = -speed
+                }
+                timer = setInterval(function () {
+                    var sattr = parseInt(getComputedStyle(obj)[attr])
+                    var eattr = sattr + speed
+
+                    if (eattr > destination && speed > 0 || eattr < destination && speed < 0) {
+                        eattr = destination
+                    }
+                    obj.style[attr] = eattr + "px"
+                    if (eattr == destination) {
+                        clearInterval(timer)
+                        callback && callback()
+                    }
+
+                }, interval)
+            }
+
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <button id="start">点击开始动画</button>
+    <button id="stop">点击停止动画</button>
+    <div class="out-wrapper">
+        <ul class="img-list" id="img-list">
+            <li>
+                <img src="./1.jpg.webp" alt="">
+            </li>
+            <li>
+                <img src="./2.jpg.webp" alt="">
+            </li>
+            <li>
+                <img src="./3.jpg.webp" alt="">
+            </li>
+            <li>
+                <img src="./4.jpg.webp" alt="">
+            </li>
+            <li>
+                <img src="./5.jpg.webp" alt="">
+            </li>
+            <li>
+                <img src="./1.jpg.webp" alt="">
+            </li>
+        </ul>
+        <div class="nav-list-wrapper">
+            <div class="nav-list">
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

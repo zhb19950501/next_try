@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .out-wrapper {
+            width: 380px;
+            height: 300px;
+            margin: 100px auto;
+            position: relative;
+            border: 10px #bfa solid;
+        }
+
+        .img-list {
+            position: absolute;
+            display: flex;
+        }
+
+        .img-list li:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        .nav-list-wrapper {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            bottom: 0px;
+        }
+
+        .nav-list {
+            /* background-color: black; */
+            display: flex;
+            height: 15px;
+            justify-content: center;
+        }
+
+        .nav-list a {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .nav-list a:hover {
+            background-color: #ffffff;
+        }
+
+        .nav-list a:last-child {
+            margin: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var imgList = document.getElementById("img-list")
+            // 为每个导航点绑定单击响应函数，实现切换
+            var allA = document.getElementsByTagName("a")
+            var index = 0
+            for (var i = 0, l = allA.length; i < l; i++) {
+                (function (i) {
+                    allA[i].onclick = function () {
+                        imgList.style.left = -390 * i + "px"
+                        index = i
+                        setA()
+                    }
+                })(i)
+            }
+            // 设置默认的导航点
+            allA[0].style.backgroundColor = "#ffffff"
+            // 设置导航点切换函数
+            function setA() {
+                for (var j = 0, length = allA.length; j < length; j++) {
+                    allA[j].style.backgroundColor = "rgba(255, 255, 255, 0.5)"
+                }
+                allA[index].style.backgroundColor = "#ffffff"
+            }
+
+            // 设置一个自动切换的动画,实现每秒切换一次
+            var timer
+
+            timer = setInterval(function () {
+                index++
+                move(imgList, "left", -390 * index, 30, 30, function () {
+                    
+                    if (index == l) {
+                        index = 0
+                        imgList.style.left = "0px"
+                    }
+                    setA()
+                    
+                })
+
+
+            }, 2000)
+
+
+
+            // 为按钮添加停止动画功能
+            var btn = document.getElementById("stop")
+            btn.onclick = function () {
+                clearInterval(timer)
+
+            }
+            // 单击按钮开启自动轮播
+            /*
+                每2秒切换至下一张图片，即imgList的left-390px，中间使用move函数实现切换
+                当移动至最后一张图片时，将left设置为0
+                切换时，
+            
+            
+            */
+            var btn1 = document.getElementById("start")
+
+
+            // 写个move函数，实现传入终止值和速度，中间每30ms移动100px的效果
+            function move(obj, attr, end, speed, interval, callback) {
+                var startNum = parseInt(getComputedStyle(obj)[attr])
+                // 如果初始值大于终点值，说明反向移动
+                if (startNum > end) {
+                    speed = -speed
+                }
+                var movetimer = setInterval(function () {
+                    var num = parseInt(getComputedStyle(obj)[attr])
+                    num += speed
+                    
+                    if (speed > 0 && num > end || speed < 0 && num < end) {
+                        num = end
+                    }
+                    obj.style[attr] = num + "px"
+                    if (num == end){
+                        clearInterval(movetimer)
+                        callback && callback()
+                    }
+                    
+
+                }, interval)
+
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <button id="start">点击开始动画</button>
+    <button id="stop">点击停止动画</button>
+    <div class="out-wrapper">
+        <ul class="img-list" id="img-list">
+            <li>
+                <img src="./1.jpg.webp" alt="">
+            </li>
+            <li>
+                <img src="./2.jpg.webp" alt="">
+            </li>
+            <li>
+                <img src="./3.jpg.webp" alt="">
+            </li>
+            <li>
+                <img src="./4.jpg.webp" alt="">
+            </li>
+            <li>
+                <img src="./5.jpg.webp" alt="">
+            </li>
+            <li>
+                <img src="./1.jpg.webp" alt="">
+            </li>
+        </ul>
+        <div class="nav-list-wrapper">
+            <div class="nav-list">
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
